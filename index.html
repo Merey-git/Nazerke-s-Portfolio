@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nazarbek Nazerke - Autobiography</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #1a1a2e;
+            --primary-accent: #c9a961;
+            --secondary-accent: #8b7355;
+            --text-light: #f5f5f0;
+            --text-muted: #b8b8aa;
+            --background: #fafaf8;
+            --card-bg: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background: var(--background);
+            color: var(--primary-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .background-decoration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .background-decoration::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(201, 169, 97, 0.08) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .background-decoration::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 60%;
+            height: 60%;
+            background: radial-gradient(circle, rgba(139, 115, 85, 0.06) 0%, transparent 70%);
+            animation: float 15s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.1); }
+        }
+
+        /* Header */
+        header {
+            position: relative;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #2a2a3e 100%);
+            color: var(--text-light);
+            padding: 100px 20px 80px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, transparent 48%, rgba(201, 169, 97, 0.03) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(201, 169, 97, 0.03) 50%, transparent 52%);
+            background-size: 30px 30px;
+            opacity: 0.5;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .photo-container {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 30px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid var(--primary-accent);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1.2s ease-out;
+            background: var(--text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .photo-container::after {
+            position: absolute;
+            font-size: 60px;
+            color: var(--primary-accent);
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--primary-accent);
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: fadeInUp 1s ease-out 0.4s backwards;
+        }
+
+        /* Top Navigation Bar */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+            border-bottom: 2px solid var(--primary-accent);
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-light);
+            letter-spacing: 1px;
+        }
+
+        /* Hamburger Menu */
+        .menu-container {
+            position: relative;
+        }
+
+        .hamburger-menu {
+            position: relative;
+        }
+
+        .hamburger-icon {
+            width: 35px;
+            height: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger-icon span {
+            width: 100%;
+            height: 3px;
+            background: var(--primary-accent);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger-icon:hover span {
+            background: var(--text-light);
+        }
+
+        .hamburger-icon:hover span:nth-child(1) {
+            transform: translateX(5px);
+        }
+
+        .hamburger-icon:hover span:nth-child(2) {
+            transform: translateX(-5px);
+        }
+
+        .hamburger-icon:hover span:nth-child(3) {
+            transform: translateX(5px);
+        }
+
+        /* Dropdown Menu */
+        .dropdown-menu {
+            position: absolute;
+            top: 50px;
+            left: 0;
+            min-width: 280px;
+            background: rgba(26, 26, 46, 0.98);
+            backdrop-filter: blur(15px);
+            border-radius: 15px;
+            padding: 15px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--primary-accent);
+        }
+
+        .hamburger-menu:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-link {
+            display: block;
+            padding: 12px 25px;
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .dropdown-link:hover {
+            background: linear-gradient(90deg, rgba(201, 169, 97, 0.2) 0%, transparent 100%);
+            border-left-color: var(--primary-accent);
+            padding-left: 35px;
+            color: var(--primary-accent);
+        }
+
+        /* Labor Market Analyses Button */
+        .labor-market-btn {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, var(--primary-accent) 0%, var(--secondary-accent) 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 20px rgba(201, 169, 97, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .labor-market-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .labor-market-btn:hover::before {
+            left: 100%;
+        }
+
+        .labor-market-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 30px rgba(201, 169, 97, 0.5);
+        }
+
+        /* Adjust header for fixed nav */
+        header {
+            position: relative;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #2a2a3e 100%);
+            color: var(--text-light);
+            padding: 140px 20px 80px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* Container */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: -40px auto 0;
+            padding: 0 20px 80px;
+        }
+
+        /* Section Card */
+        .section-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 50px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px var(--shadow);
+            animation: fadeInUp 0.8s ease-out backwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary-accent) 0%, var(--secondary-accent) 100%);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-accent) 0%, transparent 100%);
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            padding: 20px;
+            background: linear-gradient(135deg, #f8f8f6 0%, #ffffff 100%);
+            border-radius: 12px;
+            border-left: 3px solid var(--primary-accent);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .info-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--secondary-accent);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .info-value {
+            color: var(--primary-dark);
+            font-size: 1.1rem;
+        }
+
+        /* Education & Experience Items */
+        .timeline-item {
+            margin-bottom: 50px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .item-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+        }
+
+        .item-subtitle {
+            color: var(--secondary-accent);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .item-period {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            font-style: italic;
+        }
+
+        .item-description {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .item-description li {
+            margin-bottom: 8px;
+            padding-left: 10px;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, var(--primary-accent) 0%, var(--secondary-accent) 100%);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(201, 169, 97, 0.2);
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(201, 169, 97, 0.4);
+        }
+
+        /* Languages */
+        .languages {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .language-item {
+            flex: 1;
+            min-width: 150px;
+            padding: 25px;
+            background: linear-gradient(135deg, #f8f8f6 0%, #ffffff 100%);
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid var(--primary-accent);
+            transition: all 0.3s ease;
+        }
+
+        .language-item:hover {
+            background: linear-gradient(135deg, var(--primary-accent) 0%, var(--secondary-accent) 100%);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .language-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        /* Hobbies */
+        .hobbies-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .hobby-item {
+            padding: 20px;
+            background: linear-gradient(135deg, #f8f8f6 0%, #ffffff 100%);
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .hobby-item:hover {
+            border-color: var(--primary-accent);
+            background: white;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Awards */
+        .awards-list {
+            display: grid;
+            gap: 15px;
+        }
+
+        /* Photos Sections */
+        .timeline-photo {
+            width: 100%;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid var(--primary-accent);
+            transition: all 0.4s ease;
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .timeline-photo::after {
+            position: absolute;
+            font-size: 1.5rem;
+            color: #999;
+            font-weight: 600;
+        }
+
+        .timeline-photo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(201, 169, 97, 0.4);
+            border-color: var(--secondary-accent);
+        }
+
+        .timeline-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .timeline-content {
+            padding: 0;
+        }
+
+        /* Smaller photos for Education and Job sections */
+        .education-grid {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        .timeline-photo-small {
+            width: 250px;
+            height: 250px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid var(--primary-accent);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .timeline-photo-small::after {
+            position: absolute;
+            font-size: 2rem;
+            color: #999;
+        }
+
+        .timeline-photo-small:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 15px 35px rgba(201, 169, 97, 0.3);
+            border-color: var(--secondary-accent);
+        }
+
+        .timeline-photo-small img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hobbies-photos {
+            margin-bottom: 40px;
+        }
+
+        .hobby-photo-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .hobby-photo-item .hobby-image {
+            width: 100%;
+            height: 350px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid var(--primary-accent);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .hobby-photo-item .hobby-image::after {
+            position: absolute;
+            font-size: 3rem;
+            color: #999;
+        }
+
+        .hobby-photo-item .hobby-image:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 40px rgba(201, 169, 97, 0.4);
+            border-color: var(--secondary-accent);
+        }
+
+        .hobby-photo-item .hobby-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hobby-photo-item .hobby-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            padding: 20px;
+        }
+
+        /* Alternating layout */
+        .hobby-photo-item:nth-child(odd) .hobby-image {
+            order: 1;
+        }
+
+        .hobby-photo-item:nth-child(odd) .hobby-text {
+            order: 2;
+            text-align: left;
+        }
+
+        .hobby-photo-item:nth-child(even) .hobby-image {
+            order: 2;
+        }
+
+        .hobby-photo-item:nth-child(even) .hobby-text {
+            order: 1;
+            text-align: right;
+        }
+
+        .awards-photos {
+            display: flex;
+            gap: 25px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 20px 10px;
+            margin-bottom: 40px;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-accent) #f0f0f0;
+        }
+
+        .awards-photos::-webkit-scrollbar {
+            height: 10px;
+        }
+
+        .awards-photos::-webkit-scrollbar-track {
+            background: #f0f0f0;
+            border-radius: 10px;
+        }
+
+        .awards-photos::-webkit-scrollbar-thumb {
+            background: var(--primary-accent);
+            border-radius: 10px;
+        }
+
+        .awards-photos::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-accent);
+        }
+
+        .award-photo-item {
+            min-width: 400px;
+            height: 450px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid var(--primary-accent);
+            transition: all 0.4s ease;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .award-photo-item::after {
+            position: absolute;
+            font-size: 3rem;
+            color: #999;
+        }
+
+        .award-photo-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(201, 169, 97, 0.5);
+            border-color: var(--secondary-accent);
+        }
+
+        .award-photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .awards-list {
+            display: grid;
+            gap: 15px;
+        }
+
+        .award-item {
+            padding: 18px 25px;
+            background: linear-gradient(90deg, rgba(201, 169, 97, 0.1) 0%, transparent 100%);
+            border-left: 4px solid var(--primary-accent);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .award-item:hover {
+            background: linear-gradient(90deg, rgba(201, 169, 97, 0.15) 0%, rgba(139, 115, 85, 0.05) 100%);
+            transform: translateX(10px);
+        }
+
+        /* Personal Qualities */
+        .qualities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .quality-item {
+            padding: 15px 20px;
+            background: white;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid var(--primary-accent);
+            font-weight: 600;
+            color: var(--primary-dark);
+            transition: all 0.3s ease;
+        }
+
+        .quality-item:hover {
+            background: var(--primary-accent);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* About Me Section */
+        .about-text {
+            font-size: 1.15rem;
+            line-height: 2;
+            color: #444;
+            text-align: justify;
+            padding: 30px;
+            background: linear-gradient(135deg, #f8f8f6 0%, #ffffff 100%);
+            border-radius: 15px;
+            border-left: 5px solid var(--primary-accent);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: var(--text-light);
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-card:nth-child(1) { animation-delay: 0.1s; }
+        .section-card:nth-child(2) { animation-delay: 0.2s; }
+        .section-card:nth-child(3) { animation-delay: 0.3s; }
+        .section-card:nth-child(4) { animation-delay: 0.4s; }
+        .section-card:nth-child(5) { animation-delay: 0.5s; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .section-title { font-size: 1.8rem; }
+            .section-card { padding: 30px 25px; }
+            .info-grid { grid-template-columns: 1fr; }
+            
+            .top-nav {
+                padding: 0 20px;
+            }
+            
+            .logo-text {
+                font-size: 1.1rem;
+            }
+            
+            .labor-market-btn {
+                padding: 10px 20px;
+                font-size: 0.85rem;
+            }
+            
+            .dropdown-menu {
+                min-width: 250px;
+            }
+            
+            header {
+                padding: 120px 20px 60px;
+            }
+            
+            .timeline-photo {
+                height: 300px;
+            }
+            
+            .education-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .timeline-photo-small {
+                width: 100%;
+                height: 280px;
+            }
+            
+            .hobby-photo-item {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .hobby-photo-item .hobby-image {
+                height: 280px;
+            }
+            
+            .hobby-photo-item:nth-child(odd) .hobby-image,
+            .hobby-photo-item:nth-child(even) .hobby-image {
+                order: 1;
+            }
+            
+            .hobby-photo-item:nth-child(odd) .hobby-text,
+            .hobby-photo-item:nth-child(even) .hobby-text {
+                order: 2;
+                text-align: center;
+            }
+            
+            .award-photo-item {
+                min-width: 300px;
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-decoration"></div>
+
+    <header>
+        <div class="top-nav">
+            <div class="menu-container">
+                <div class="hamburger-menu">
+                    <div class="hamburger-icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="dropdown-menu">
+                        <a href="#personal-info" class="dropdown-link">Personal Information</a>
+                        <a href="#education" class="dropdown-link">Education</a>
+                        <a href="#job-experience" class="dropdown-link">Job Experience</a>
+                        <a href="#skills-qualities" class="dropdown-link">Skills and Qualities</a>
+                        <a href="#hobbies" class="dropdown-link">Hobby</a>
+                        <a href="#awards" class="dropdown-link">Awards</a>
+                        <a href="#about-me" class="dropdown-link">About Me</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="logo-text">Autobiography</div>
+            
+            <a href="labor.html" class="labor-market-btn">Labor Market Analyses</a>
+        </div>
+        
+        <div class="header-content">
+            <div class="photo-container">
+                <img src="images/main.jpg" alt="Nazerke Nazerbek">
+            </div>
+            <h1>Nazarbek Nazerke Nazarbekkyzy</h1>
+            <p class="subtitle">Physics education</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="section-card" id="personal-info">
+            <h2 class="section-title">Personal Information</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">Full Name</div>
+                    <div class="info-value">Nazarbek Nazerke Nazarbekkyzy</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Date of Birth</div>
+                    <div class="info-value">26 August 2003</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">City</div>
+                    <div class="info-value">Aktau</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Gender</div>
+                    <div class="info-value">Female</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Marital Status</div>
+                    <div class="info-value">Single</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2 class="section-title">Contact Information</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">Phone</div>
+                    <div class="info-value">+7 778 698 6970</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Email</div>
+                    <div class="info-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5a343b203f28313f34353d3b3f2c3b3b1a3d373b333674393537">nazerkenogaevaa@gmail.com</a></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-card" id="education">
+            <h2 class="section-title">Educational Background</h2>
+
+             <div class="timeline-item">
+                <div class="education-grid">
+                    <div class="timeline-photo-small">
+                        <img src="images/secondary.jpg" alt="Secondary Education">
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="item-title">Secondary Education</h3>
+                        <div class="item-subtitle">Nazarbayev Intellectual School, Aktau</div>
+                        <div class="item-period">Graduated: 2021</div>
+                        <div class="item-description">Recipient of the "Altyn Belgi" distinction</div>
+                    </div>
+                </div>
+            </div>
+        
+
+            <div class="timeline-item">
+                <div class="education-grid">
+                    <div class="timeline-photo-small">
+                        <img src="images/bakalavr.jpg" alt="Bachelor's Degree">
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="item-title">Bachelor's Degree</h3>
+                        <div class="item-subtitle">Al-Farabi Kazakh National University</div>
+                        <div class="item-subtitle">Faculty of Physics and Technology</div>
+                        <div class="item-period">2021–2025</div>
+                        <div class="item-description">
+                            Specialty: "Physics"<br>
+                            Excellent student with GPA: 3.84
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="education-grid">
+                    <div class="timeline-content">
+                        <h3 class="item-title">Master's Degree</h3>
+                        <div class="item-subtitle">Al-Farabi Kazakh National University</div>
+                        <div class="item-subtitle">Faculty of Physics and Technology</div>
+                        <div class="item-period">2025–2027</div>
+                        <div class="item-description">Specialty: "Physics Education"</div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+        <div class="section-card" id="job-experience">
+            <h2 class="section-title">Job Experience</h2>
+            
+            <div class="timeline-item">
+                <div class="education-grid">
+                    <div class="timeline-photo-small">
+                        <img src="images/teacher.jpg" alt="Physics Teacher">
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="item-title">Physics Teacher</h3>
+                        <div class="item-subtitle">School-Gymnasium No. 44, Almaty</div>
+                        <div class="item-period">2025–2026</div>
+                        <div class="item-description">
+                            <ul>
+                                <li>Teaching physics classes</li>
+                                <li>Participation in professional seminars and training programs</li>
+                                <li>Professional development in pedagogy and teaching methodology</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="education-grid">
+                    <div class="timeline-photo-small">
+                        <img src="images/hostess.jpg" alt="Hostess at Ritz-Carlton">
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="item-title">Hostess</h3>
+                        <div class="item-subtitle">The Ritz-Carlton, Almaty</div>
+                        <div class="item-period">2022–2024</div>
+                        <div class="item-description">
+                            <ul>
+                                <li>Working with premium-level guests</li>
+                                <li>Organizing reception and guest assistance</li>
+                                <li>Maintaining a high standard of service and communication</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="education-grid">
+                    <div class="timeline-photo-small">
+                        <img src="images/pastry.jpg" alt="Pastry Chef">
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="item-title">Pastry Chef</h3>
+                        <div class="item-subtitle">Dream Cake, Almaty</div>
+                        <div class="item-period">2021–2023</div>
+                        <div class="item-description">
+                            <ul>
+                                <li>Preparation and decoration of a wide variety of cakes, pastries, and desserts according to high standards</li>
+                                <li>Development of new dessert recipes and menu items</li>
+                                <li>Ensuring quality control and consistency of all baked goods</li>
+                                <li>Managing inventory of baking ingredients and supplies</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-card" id="skills-qualities">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-tag">Theoretical Physics</div>
+                <div class="skill-tag">Modeling</div>
+                <div class="skill-tag">Maple Software</div>
+                <div class="skill-tag">Scientific Analysis</div>
+                <div class="skill-tag">Academic Writing</div>
+                <div class="skill-tag">Graph Plotting</div>
+                <div class="skill-tag">Numerical Calculations</div>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2 class="section-title">Personal Qualities</h2>
+            <div class="qualities-grid">
+                <div class="quality-item">Responsibility</div>
+                <div class="quality-item">Communication Skills</div>
+                <div class="quality-item">Organization</div>
+                <div class="quality-item">Stress Resistance</div>
+                <div class="quality-item">Fast Learner</div>
+                <div class="quality-item">Teamwork</div>
+                <div class="quality-item">Leadership</div>
+                <div class="quality-item">Attention to Detail</div>
+                <div class="quality-item">Punctuality</div>
+                <div class="quality-item">Empathy</div>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2 class="section-title">Professional Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-tag">Document Management</div>
+                <div class="skill-tag">Business Correspondence</div>
+                <div class="skill-tag">Email Communication</div>
+                <div class="skill-tag">Report Preparation</div>
+                <div class="skill-tag">MS Office</div>
+                <div class="skill-tag">Lesson Conducting</div>
+                <div class="skill-tag">Public Speaking</div>
+                <div class="skill-tag">Business Communication</div>
+                <div class="skill-tag">Time Management</div>
+                <div class="skill-tag">Online Learning Platforms</div>
+                <div class="skill-tag">Numerical Modeling</div>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2 class="section-title">Languages</h2>
+            <div class="languages">
+                <div class="language-item">
+                    <div class="language-name">Kazakh</div>
+                </div>
+                <div class="language-item">
+                    <div class="language-name">Russian</div>
+                </div>
+                <div class="language-item">
+                    <div class="language-name">English</div>
+                </div>
+                <div class="language-item">
+                    <div class="language-name">German</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-card" id="hobbies">
+            <h2 class="section-title">Hobbies</h2>
+            
+            <div class="hobbies-photos">
+                <div class="hobby-photo-item">
+                    <div class="hobby-image">
+                        <img src="images/blog.jpg" alt="Hobby 1">
+                    </div>
+                    <div class="hobby-text">Reading & Creating Video Content</div>
+                </div>
+                
+                <div class="hobby-photo-item">
+                    <div class="hobby-image">
+                        <img src="images/cooking.jpg" alt="Hobby 2">
+                    </div>
+                    <div class="hobby-text">Cooking & Blogging</div>
+                </div>
+                
+                <div class="hobby-photo-item">
+                    <div class="hobby-image">
+                        <img src="images/snowboard2.jpg" alt="Hobby 3">
+                    </div>
+                    <div class="hobby-text">Snowboarding</div>
+                </div>
+                
+                <div class="hobby-photo-item">
+                    <div class="hobby-image">
+                        <img src="images/self.jpg" alt="Hobby 4">
+                    </div>
+                    <div class="hobby-text">Self-Development</div>
+                </div>
+                
+                <div class="hobby-photo-item">
+                    <div class="hobby-image">
+                        <img src="images/nature.jpg" alt="Hobby 5">
+                    </div>
+                    <div class="hobby-text">Nature Walks & Self-Development</div>
+                </div>
+            </div>
+
+            <div class="hobbies-list">
+                <div class="hobby-item">Dancing</div>
+                <div class="hobby-item">Creating Video Content</div>
+                <div class="hobby-item">Horse Riding</div>
+                <div class="hobby-item">Snowboarding</div>
+                <div class="hobby-item">Nature Walks</div>
+                <div class="hobby-item">Self-Development</div>
+                <div class="hobby-item">Creativity</div>
+            </div>
+        </div>
+
+        <div class="section-card" id="awards">
+            <h2 class="section-title">Grants and Awards</h2>
+            
+            <div class="awards-photos">
+                <div class="award-photo-item">
+                    <img src="images/awards1.jpg" alt="Award Photo 1">
+                </div>
+                <div class="award-photo-item">
+                    <img src="images/awards2.jpg" alt="Award Photo 2">
+                </div>
+                <div class="award-photo-item">
+                    <img src="images/awards3.jpg" alt="Award Photo 3">
+                </div>
+                <div class="award-photo-item">
+                    <img src="images/awards4.jpg" alt="Award Photo 4">
+                </div>
+                <div class="award-photo-item">
+                    <img src="images/awards5.jpg" alt="Award Photo 5">
+                </div>
+                <div class="award-photo-item">
+                    <img src="images/awards6.jpg" alt="Award Photo 6">
+                </div>
+                <div class="award-photo-item">
+                    <img src="images/awards7.jpg" alt="Award Photo 6">
+                </div>
+            </div>
+
+            <div class="awards-list">
+                <div class="award-item">🏆 Recipient of the "Altyn Belgi" distinction</div>
+                <div class="award-item">🎓 State educational grant holder</div>
+                <div class="award-item">⭐ Excellent student of Al-Farabi KazNU (GPA: 3.84)</div>
+                <div class="award-item">👔 Chief organizer of the "Sunkar Academy" project (2022–2023)</div>
+                <div class="award-item">📜 Letter of appreciation from the Dean of the Faculty of Physics and Technology</div>
+                <div class="award-item">📜 Letters of appreciation from university student leadership (2023–2025)</div>
+                <div class="award-item">📜 Appreciation from the Vice-Rector for Social Development</div>
+                <div class="award-item">📢 Media coordinator of the "Sunkar" Student Union</div>
+                <div class="award-item">🎯 Organizer and chief coordinator of city and university events</div>
+                <div class="award-item">🌟 Best graduate of "Sunkar Academy – 2025"</div>
+                <div class="award-item">🏅 Holder of the Sunkar badge</div>
+                <div class="award-item">🥇 1st place in intellectual games organized by JAS GALAM</div>
+                <div class="award-item">🥉 3rd place in the "Silver Book" competition</div>
+                <div class="award-item">📜 Letters of appreciation from the Student Alliance of Kazakhstan</div>
+                <div class="award-item">🏆 Winner of the Republican competition "Best Student – 2025"</div>
+                <div class="award-item">🏅 Official badge, certificate, and trophy of "Best Student – 2025"</div>
+                <div class="award-item">📜 Republican diplomas (I, II, III degrees)</div>
+            </div>
+        </div>
+
+        
+
+        <div class="section-card" id="about-me">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-text">
+                Motivated specialist with education in physics and pedagogy. Experienced in teaching and working with clients in an international environment. Responsible, team-oriented, and adaptable to new conditions. I strive for continuous professional growth and development. I combine analytical thinking, discipline, and strong communication skills, and work effectively in dynamic environments while applying knowledge in practice.
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Nazerke Nazerbek. All rights reserved.</p>
+    </footer>
